@@ -21,5 +21,6 @@ SELECT baiviet.ten_bhat FROM baiviet WHERE baiviet.ten_bhat LIKE "%yêu%" or bai
 -- Liệt kê các bài viết về các bài hát có tiêu đề bài viết hoặc tựa bài hát chứa 1 trong các từ “yêu”, “thương”, “anh”, “em”
 SELECT baiviet.tieude FROM baiviet WHERE baiviet.tieude LIKE "%yêu%" or baiviet.tieude LIKE "%thương%" or baiviet.tieude LIKE "%anh%" or baiviet.tieude LIKE "%em%"
 
+--Tìm thể loại có số bài viết nhiều nhất
+SELECT ma_tloai, COUNT(*) AS m_baiviet FROM baiviet GROUP BY ma_tloai ORDER BY m_baiviet DESC LIMIT 1;
 
-?>
