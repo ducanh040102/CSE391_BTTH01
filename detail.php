@@ -1,3 +1,14 @@
+<?php 
+include './includes/database_connection.php';
+
+$getid  = $_GET['id'];
+$sql       = "SELECT * FROM baiviet WHERE baiviet.ma_bviet=".$getid;
+//echo $sql;
+$statement = $pdo->query($sql);
+$members    = $statement->fetch();
+//echo var_dump($members);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +20,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    
+    
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -47,11 +60,11 @@
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none">Cây và gió</a>
+                            <a href="" class="text-decoration-none"><?= $members['tieude'] ?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cây và gió</p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?= $members['ten_bhat'] ?></p>
                         <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?= $members['tomtat'] ?></p>
                         <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
                         <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
 

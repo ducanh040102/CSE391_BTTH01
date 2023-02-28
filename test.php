@@ -3,5 +3,8 @@
     require './includes/database_connection.php';              // Create PDO object
     require './includes/functions.php';                        // Include functions
 
-    $sql = "SELECT * FROM baiviet;";   
+    $sql = "SELECT * FROM baiviet;";
+    $detail = pdo($pdo, $sql) -> fetchAll();
+
+    
 ?>
