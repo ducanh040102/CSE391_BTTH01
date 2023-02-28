@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 26, 2023 lúc 04:29 PM
+-- Thời gian đã tạo: Th2 28, 2023 lúc 11:40 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.1.12
 
@@ -30,18 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `user` (
   `ma_user` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `pass` varchar(50) NOT NULL
+  `pass` varchar(50) NOT NULL,
+  `QuyenHan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`ma_user`, `name`, `pass`) VALUES
-(1, 'admin', 'admin123'),
-(2, 'ducanh', 'ducanh123'),
-(3, 'giabao', 'giabao123'),
-(4, 'datanh', 'datanh123');
+INSERT INTO `user` (`ma_user`, `name`, `pass`, `QuyenHan`) VALUES
+(1, 'admin', 'admin123', 1),
+(2, 'ducanh', 'ducanh123', 2),
+(3, 'giabao', 'giabao123', 2),
+(4, 'datanh', 'datanh123', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
