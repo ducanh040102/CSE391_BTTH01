@@ -26,5 +26,6 @@ SELECT baiviet.ten_bhat FROM baiviet WHERE baiviet.ten_bhat LIKE "%yêu%" or bai
 -- h) Liệt kê các bài viết về các bài hát có tiêu đề bài viết hoặc tựa bài hát chứa 1 trong các từ “yêu”, “thương”, “anh”, “em”
 SELECT baiviet.tieude FROM baiviet WHERE baiviet.tieude LIKE "%yêu%" or baiviet.tieude LIKE "%thương%" or baiviet.tieude LIKE "%anh%" or baiviet.tieude LIKE "%em%"
 
-
+-- k) Thêm mới cột SLBaiViet vào trong bảng theloai. Tạo 1 trigger có tên tg_CapNhatTheLoai để khi thêm/sửa/xóa bài viết thì số lượng bài viết trong bảng theloai được cập nhật theo. 
+CREATE TRIGGER tg_CapNhatTheLoai AFTER UPDATE ON baiviet FOR EACH ROW UPDATE theloai, baiviet set theloai.SLBaiViet = theloai.SLBaiViet + (SELECT COUNT(ma_tloai) FROM baiviet) WHERE (theloai.ma_tloai = baiviet.ma_tloai);
 
