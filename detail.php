@@ -7,6 +7,8 @@ $sql       = "SELECT * FROM baiviet WHERE baiviet.ma_bviet=".$getid;
 $statement = $pdo->query($sql);
 $members    = $statement->fetch();
 //echo var_dump($members);
+
+$imglink = "images/songs/".$members['hinhanh'].".jpg"
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +58,7 @@ $members    = $statement->fetch();
        
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="images/songs/cayvagio.jpg" class="img-fluid" alt="...">
+                        <img src=<?php echo $imglink ?> class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">

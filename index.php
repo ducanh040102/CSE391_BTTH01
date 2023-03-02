@@ -80,10 +80,11 @@
         <div class="row">
             <?php 
             foreach($details as $detail){
+                $imglink = "images/songs/".$detail['hinhanh'].".jpg"
             ?>
             <div class="col-sm-3">
                 <div class="card mb-2" style="width: 100%;">
-                    <img src="images/songs/cayvagio.jpg" class="card-img-top" alt="...">
+                    <img src=<?= $imglink ?> class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">
                             <a href="detail.php?id=<?= $detail["ma_bviet"] ?>" class="text-decoration-none"><?= $detail["ten_bhat"] ?></a>
