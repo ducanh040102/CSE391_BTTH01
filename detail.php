@@ -2,7 +2,7 @@
 include './includes/database_connection.php';
 
 $getid  = $_GET['id'];
-$sql       = "SELECT * FROM baiviet WHERE baiviet.ma_bviet=".$getid;
+$sql       = "SELECT * FROM baiviet INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia INNER JOIN theloai ON baiviet.ma_tloai = theloai.ma_tloai WHERE baiviet.ma_bviet=".$getid;
 //echo $sql;
 $statement = $pdo->query($sql);
 $members    = $statement->fetch();
@@ -65,10 +65,10 @@ $imglink = "images/songs/".$members['hinhanh'].".jpg"
                             <a href="" class="text-decoration-none"><?= $members['tieude'] ?></a>
                         </h5>
                         <p class="card-text"><span class=" fw-bold">Bài hát: </span><?= $members['ten_bhat'] ?></p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?= $members['ten_tloai'] ?></p>
                         <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?= $members['tomtat'] ?></p>
                         <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?= $members['ten_tgia'] ?></p>
 
                     </div>          
         </div>
