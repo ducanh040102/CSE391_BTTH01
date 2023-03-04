@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Admin</h1>
+    <?php
+    echo $_SESSION["user"];
+    ?>
     <input hrep = "./logout.php" name = "btnLogout" type = "submit" id = "btn" value = "Logout" />
 </body>
 </html>
