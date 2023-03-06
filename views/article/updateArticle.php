@@ -2,7 +2,7 @@
     <h1 style="margin-bottom:50px;">Chi tiết bài viết</h1>
     <div class="row">
 
-        <form action="../admin/indexAdmin.php?act=updateArticle" method="post">
+        <form action="index.php?controller=article&action=updateArticleById" method="post">
             <div class="input-group mt-3 mb-3">
                 <input type="hidden" name="mabaiviet" value="<?= $article[0]['ma_bviet'] ?>">
                 <span class="input-group-text" id="lblCatName">Tiêu đề</span>
@@ -49,7 +49,7 @@
 
             <div class="form-group  float-end ">
                 <input type="submit" value="Lưu lại" class="btn btn-success">
-                <a href="../admin/indexAdmin.php?act=baiviet" class="btn btn-warning ">Quay lại</a>
+                <a href="index.php?controller=article" class="btn btn-warning ">Quay lại</a>
             </div>
         </form>
     </div>

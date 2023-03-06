@@ -54,4 +54,19 @@ class ArticleService
 
         return $article;
     }
+
+    public function updateArticleById()
+    {
+        $id = $_POST['mabaiviet'];
+        $tieude = $_POST['tieude'];
+        $tomtat = $_POST['tomtat'];
+        $baihat = $_POST['tenbaihat'];
+        $ngayviet = $_POST['ngayviet'];
+        $matacgia = $_POST['matacgia'];
+        $matheloai = $_POST['matheloai'];
+        $pdo = connectdb();
+        $sql = "UPDATE baiviet SET baiviet.tieude = '" . $tieude . "',baiviet.ten_bhat = '" . $baihat . "',baiviet.ma_tloai = '" . $matheloai . "',baiviet.tomtat = '" . $tomtat . "',baiviet.ma_tgia = '" . $matacgia . "',baiviet.ngayviet = '" . $ngayviet . "' WHERE baiviet.ma_bviet = " . $id;
+        $stm = $pdo->prepare($sql);
+        $stm->execute();
+    }
 }

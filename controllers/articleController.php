@@ -40,6 +40,14 @@ class ArticleController
         $categories = $CategoryService->getAllCategories();
         include('./views/article/updateArticle.php');
     }
+
+    public function updateArticleById()
+    {
+        $articleService = new ArticleService();
+        $article = $articleService->updateArticleById();
+        $articles = $articleService->getAllArticles();
+        header('location:index.php?controller=article');
+    }
 }
 
 // $articleService = new ArticleService();
