@@ -1,32 +1,44 @@
 <?php
-// include('../services/categoryService.php');
+include('./services/category/categoryService.php');
 
 class categoryController
 {
-
     public function index()
     {
-        $categoriesController = new categoryService();
-        $categories = $categoriesController->getCategory();
-        return $categories;
+        $categoryService = new categoryService();
+        $categories = $categoryService->getAllCategories();
+        // //include('../views/article/articles.php');
+        include('./views/category/category.php');
     }
 
-    public function addCategory($tentheloai)
+    public function add()
     {
-        $categoriesController = new categoryService();
-        $categories = $categoriesController->addCategoryService($tentheloai);
+        // Tương tác với Services/Models
+        //$categories = 'Categories from ArticeServices';
+        // Tương tác với View
+        include('./views/category/add_category.php');
     }
 
-    public function getIdCategory($id)
+    public function addcategory()
     {
-        $categoriesController = new categoryService();
-        $category = $categoriesController->getIdCategoryService($id);
-        return $category;
+        $categoryService = new  categoryService();
+        $categoryService->addCategory();
+        $categories = $categoryService->getAllCategories();
+        header('location:index.php?controller=category');
     }
 
-    public function updateCategory($id, $tentheloai)
+    public function getCategoryById()
     {
-        $categoriesController = new categoryService();
-        $category = $categoriesController->updateCategoryService($id, $tentheloai);
+        $CategoryService = new  categoryService();
+        $category = $CategoryService->getCategoryById();
+        include('./views/category/updateCategory.php');
+    }
+
+    public function updateCategoryById()
+    {
+        $categoryService = new  categoryService();
+        $category = $categoryService->updateCategoryById();
+        $categories = $categoryService->getAllCategories();
+        header('location:index.php?controller=category');
     }
 }

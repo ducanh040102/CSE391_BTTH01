@@ -1,30 +1,43 @@
 <?php
+include('./services/author/authorService.php');
+
 class authorController
 {
-
     public function index()
     {
-        $authorController = new authorService();
-        $authors = $authorController->getAuthor();
-        return $authors;
+        $authorService = new  authorService();
+        $authors = $authorService->getAllAuthors();
+        // //include('../views/article/articles.php');
+        include('./views/author/author.php');
     }
 
-    public function addAuthor($tentacgia)
+    public function add()
     {
-        $authorController = new authorService();
-        $authors = $authorController->addAuthorService($tentacgia);
+        // Tương tác với Services/Models
+        //$categories = 'Categories from ArticeServices';
+        // Tương tác với View
+        include('./views/author/add_author.php');
+    }
+    public function addAuthor()
+    {
+        $authorService = new  authorService();
+        $authorService->addAuthor();
+        $authors = $authorService->getAllAuthors();
+        header('location:index.php?controller=author');
     }
 
-    public function getIdAuthor($id)
+    public function getAuthorById()
     {
-        $authorController = new authorService();
-        $author = $authorController->getIdAuthorService($id);
-        return $author;
+        $authorService = new  authorService();
+        $author = $authorService->getAuthorById();
+        include('./views/author/updateAuthor.php');
     }
 
-    public function updateAuthor($id, $tentacgia)
+    public function updateAuthorById()
     {
-        $authorController = new authorService();
-        $author = $authorController->updateAuthorService($id, $tentacgia);
+        $authorService = new  authorService();
+        $author = $authorService->updateAuthorById();
+        $authors = $authorService->getAllAuthors();
+        header('location:index.php?controller=author');
     }
 }

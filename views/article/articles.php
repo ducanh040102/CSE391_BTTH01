@@ -1,8 +1,7 @@
-<main class="container mt-5 mb-5">
-
+<main>
     <div class="row">
         <div class="col-sm">
-            <a href="../admin/indexAdmin.php?act=addArticle" class="btn btn-success">Thêm mới</a>
+            <a href="index.php?controller=article&action=add" class="btn btn-success">Thêm mới</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -26,10 +25,10 @@
                             <td><?= $article['tomtat'] ?></td>
                             <td><?= $article['ngayviet'] ?></td>
                             <td>
-                                <a href="../admin/indexAdmin.php?act=updateArticle&id=<?= $article['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="index.php?controller=article&action=getArticleById&id=<?= $article['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
-                                <a href="../admin/indexAdmin.php?act=deleteArticle&id=<?= $article['ma_bviet'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?act=deleteArticle&id=<?= $article['ma_bviet'] ?>"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php $stt++;

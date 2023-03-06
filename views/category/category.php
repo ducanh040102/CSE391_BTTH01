@@ -2,7 +2,7 @@
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="row">
         <div class="col-sm">
-            <a href="../admin/indexAdmin.php?act=add_category" class="btn btn-success">Thêm mới</a>
+            <a href="index.php?controller=category&action=add" class="btn btn-success">Thêm mới</a>
             <table class="table">
                 <thead>
                     <tr>
@@ -19,7 +19,7 @@
                             <th scope="row"><?= $stt ?></th>
                             <td><?= $category['ten_tloai'] ?></td>
                             <td>
-                                <a href="indexAdmin.php?act=updateCategory&id=<?= $category['ma_tloai'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="index.php?controller=category&action=getCategoryById&id=<?= $category['ma_tloai'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                             </td>
                             <td>
                                 <a href="indexAdmin.php?act=deleteCategory&id=<?= $category['ma_tloai'] ?>"><i class="fa-solid fa-trash"></i></a>

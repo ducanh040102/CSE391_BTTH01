@@ -1,144 +1,60 @@
-<?php
+<main class="container mt-5 mb-5">
+    <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card mb-2" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <a href="" class="text-decoration-none">Người dùng</a>
+                    </h5>
 
-// include('./models/connectdb.php');
-// include('./models/category.php');
-// include('./models/author.php');
-// include('./models/article.php');
-// include('./models/showData.php');
+                    <h5 class="h1 text-center">
+                        100
+                    </h5>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-sm-3">
+            <div class="card mb-2" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <a href="" class="text-decoration-none">Thể loại</a>
+                    </h5>
 
-include('../../config/connectdb.php');
-include('../../services/categoryService.php');
-include('../../controllers/categoryController.php');
+                    <h5 class="h1 text-center">
+                        <?= $categories[0]['sotheloai']; ?>
+                    </h5>
+                </div>
+            </div>
+        </div>
 
-include('../../services/authorService.php');
-include('../../controllers/authorController.php');
+        <div class="col-sm-3">
+            <div class="card mb-2" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <a href="" class="text-decoration-none">Tác giả</a>
+                    </h5>
 
+                    <h5 class="h1 text-center">
+                        <?= $authors[0]['sotacgia']; ?>
+                    </h5>
+                </div>
+            </div>
+        </div>
 
-include('../../services/articleService.php');
-include('../../controllers/articleController.php');
+        <div class="col-sm-3">
+            <div class="card mb-2" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        <a href="" class="text-decoration-none">Bài viết</a>
+                    </h5>
 
-
-include('../../services/indexAdminService.php');
-include('../../controllers/indexAdminController.php');
-
-
-include('../includes/admin-header.php');
-
-
-
-$categoriesController = new categoryController();
-$authorController = new authorController();
-$articleController = new articleController();
-
-if (isset($_GET['act'])) {
-    switch ($_GET['act']) {
-        case 'theloai':
-            $categories = $categoriesController->index();
-            include '../category/category.php';
-            break;
-        case 'deleteCategory';
-            // if (isset($_GET['id'])) {
-            //     $id = $_GET['id'];
-            //     deleteCategory($id);
-            // }
-            // $categories = getCategory();
-            // include './views/admin/category.php';
-            // break;
-        case 'updateCategory';
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $category = $categoriesController->getIdCategory($id);
-                include '../category/updateCategory.php';
-            }
-            if (isset($_POST['matheloai'])) {
-                $id = $_POST['matheloai'];
-                $tentheloai = $_POST['tentheloai'];
-                $category = $categoriesController->updateCategory($id, $tentheloai);
-                $categories = $categoriesController->index();
-                include '../category/category.php';
-            }
-            break;
-        case 'addCategory';
-            if (isset($_POST['tentheloai']) && isset($_POST['btn'])) {
-                $tentheloai = $_POST['tentheloai'];
-                $categoriesController->addCategory($tentheloai);
-            }
-            $categories = $categoriesController->index();
-            include '../category/getCategory.php';
-            break;
-        case 'add_category';
-            include '../category/add_category.php';
-            break;
-            //////////////////////////////////// 
-        case 'tacgia':
-            $authors = $authorController->index();
-            include '../author/author.php';
-            break;
-        case 'updateAuthor';
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $author = $authorController->getIdAuthor($id);
-                include '../author/updateAuthor.php';
-            }
-            if (isset($_POST['matacgia'])) {
-                $id = $_POST['matacgia'];
-                $tentacgia = $_POST['tentacgia'];
-                $authorController->updateAuthor($id, $tentacgia);
-                $authors = $authorController->index();
-                include '../author/author.php';
-            }
-            break;
-        case 'addAuthor';
-            if (isset($_POST['tentacgia'])) {
-                $tentacgia = $_POST['tentacgia'];
-                $authorController->addAuthor($tentacgia);
-            }
-            $authors = $authorController->index();
-            include '../author/author.php';
-            break;
-        case 'add_author';
-            include '../author/add_author.php';
-            break;
-            ////////////////////////////////////            
-        case 'baiviet';
-            $articles = $articleController->index();
-            include '../article/article.php';
-            break;
-        case 'updateArticle';
-            if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $article = $articleController->getIdArticle($id);
-                include '../article/updateArticle.php';
-            }
-            if (isset($_POST['mabaiviet'])) {
-                $id = $_POST['mabaiviet'];
-                $tieude = $_POST['tieude'];
-                $tenbaihat = $_POST['tenbaihat'];
-                $tomtat = $_POST['tomtat'];
-                $ngayviet = $_POST['ngayviet'];
-                $articleController->updateArticle($id, $tieude, $tenbaihat, $tomtat, $ngayviet);
-                $articles = $articleController->index();
-                include '../article/article.php';
-            }
-            break;
-            ////////////////////////////////////         
-
-        case 'addArticle';
-            include './views/admin/add_article.php';
-            break;
-    }
-} else {
-    $indexAdminController = new IndexAdminController();
-    $categories = $indexAdminController->countCategory();
-    $authors = $indexAdminController->countAuthor();
-    $articles = $indexAdminController->countArticle();
-    // $showArticle = countArticles();
-    // $showCategory = countCategory();
-    // $showAuthor = countAuthor();
-    include('./index.php');
-}
-
-
-
-include('../includes/admin-footer.php');
+                    <h5 class="h1 text-center">
+                        <?= $articles[0]['sobaiviet']; ?>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

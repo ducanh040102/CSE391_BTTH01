@@ -1,30 +1,52 @@
 <?php
-class articleController
-{
+include('./services/article/ArticleService.php');
+include('./services/author/authorService.php');
+include('./services/category/categoryService.php');
 
+class ArticleController
+{
     public function index()
     {
-        $articleController = new articleService();
-        $articles =  $articleController->getArticle();
-        return $articles;
+        $articleService = new ArticleService();
+        $articles = $articleService->getAllArticles();
+        // //include('../views/article/articles.php');
+        include('./views/article/articles.php');
     }
 
-    // public function addAuthor($tentacgia)
-    // {
-    //     $authorController = new authorService();
-    //     $authors = $authorController->addAuthorService($tentacgia);
-    // }
-
-    public function getIdArticle($id)
+    public function add()
     {
-        $articleController = new articleService();
-        $article = $articleController->getIdArticleService($id);
-        return $article;
+        $authorService = new  authorService();
+        $authors = $authorService->getAllAuthors();
+        $categoryService = new categoryService();
+        $categories = $categoryService->getAllCategories();
+        include("views/article/add_article.php");
     }
 
-    public function updateArticle($id, $tieude, $tenbaihat, $tomtat, $ngayviet)
+    public function addArticle()
     {
-        $articleController = new articleService();
-        $article = $articleController->updateArticleService($id, $tieude, $tenbaihat, $tomtat, $ngayviet);
+        $articleService = new ArticleService();
+        $article = $articleService->addArticles();
+        $articles = $articleService->getAllArticles();
+        header('location:index.php?controller=article');
+    }
+
+    public function getArticleById()
+    {
+        $articleService = new ArticleService();
+        $article = $articleService->getArticleById();
+        $authorService = new  authorService();
+        $authors = $authorService->getAllAuthors();
+        $CategoryService = new categoryService();
+        $categories = $CategoryService->getAllCategories();
+        include('./views/article/updateArticle.php');
     }
 }
+
+// $articleService = new ArticleService();
+// $articles = $articleService->getAllArticles();
+// echo var_dump($articles);
+
+
+// $test = new ArticleController();
+// $test1 = $test->index();
+// echo $test1;

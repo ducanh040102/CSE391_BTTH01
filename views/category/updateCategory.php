@@ -2,7 +2,7 @@
     <h1 style="margin-bottom:50px;">Chi tiết thể loại</h1>
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="row">
-        <form action="../admin/indexAdmin.php?act=updateCategory" method="post">
+        <form action="index.php?controller=category&action=updateCategoryById" method="post">
             <!-- <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Tên thể loại</label>
                 <input type="hidden" name="matheloai" value="<?= $category[0]['ma_tloai'] ?>">
@@ -19,7 +19,7 @@
 
             <div class="form-group  float-end ">
                 <input type="submit" value="Lưu lại" class="btn btn-success">
-                <a href="../admin/indexAdmin.php?act=theloai" class="btn btn-warning ">Quay lại</a>
+                <a href="index.php?controller=category" class="btn btn-warning ">Quay lại</a>
             </div>
         </form>
     </div>

@@ -24,16 +24,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="../admin/indexAdmin.php">Trang chủ</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/indexAdmin.php?act=theloai">Thể loại</a> <!--active fw-bold-->
+                            <a class="nav-link" href="../index.php">Trang ngoài</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/indexAdmin.php?act=tacgia">Tác giả</a>
+                            <a class="nav-link" href="index.php?controller=category">Thể loại</a> <!--active fw-bold-->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/indexAdmin.php?act=baiviet">Bài viết</a>
+                            <a class="nav-link" href="index.php?controller=author">Tác giả</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=article">Bài viết</a>
                         </li>
                     </ul>
                 </div>

@@ -2,7 +2,7 @@
     <h1 style="margin-bottom:50px;">Chi tiết tác giả</h1>
     <div class="row">
 
-        <form action="../admin/indexAdmin.php?act=updateAuthor" method="post">
+        <form action="index.php?controller=author&action=updateAuthorById" method="post">
 
 
             <div class="input-group mt-3 mb-3">
@@ -13,7 +13,7 @@
 
             <div class="form-group  float-end ">
                 <input type="submit" value="Lưu lại" class="btn btn-success">
-                <a href="../admin/indexAdmin.php?act=tacgia" class="btn btn-warning ">Quay lại</a>
+                <a href="index.php?controller=author" class="btn btn-warning ">Quay lại</a>
             </div>
 
             <!-- <button type="submit" class="btn btn-primary">Sửa</button> -->

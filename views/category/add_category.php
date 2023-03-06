@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm">
             <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-            <form action="../admin/indexAdmin.php?act=addCategory" method="post">
+            <form action="index.php?controller=category&action=addCategory" method="post">
 
                 <!-- <div class="form-group  float-end ">
                     <input type="submit" value="Thêm" name="btn" class="btn btn-success">
