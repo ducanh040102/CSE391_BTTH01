@@ -27,9 +27,6 @@
                             <a class="nav-link" aria-current="page" href="index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../index.php">Trang ngoài</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="index.php?controller=category">Thể loại</a> <!--active fw-bold-->
                         </li>
                         <li class="nav-item">
@@ -37,6 +34,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php?controller=article">Bài viết</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?controller=user">Người dùng</a>
                         </li>
                     </ul>
                 </div>
