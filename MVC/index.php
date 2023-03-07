@@ -1,4 +1,5 @@
 <?php
+    include("./assets/includes/header.php");
     //Routing: định tuyến
     //Phân tích URL của người dùng đang Request > Tìm xem: Ai sẽ xử lý tiếp (Controller nào)
 
@@ -22,4 +23,6 @@
     // Bước 03: Khởi tạo đối tượng tương ứng của Controller và gọi hàm xử lý Action
     $myObj = new $controller();
     $myObj->$action();
+
+    include("./assets/includes/footer.php");
 ?>
