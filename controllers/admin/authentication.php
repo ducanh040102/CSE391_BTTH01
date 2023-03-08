@@ -19,8 +19,13 @@
             $_SESSION['username'] == $username;
             header("Location:../../views/admin/admin.php");
         }
+        else if ($result["QuyenHan"]==2)
+        {
+            header("Location:../../views/home/index.php");
+        }
         else
         {
+            echo "<script>alert('Sai tài khoản hoặc mất khẩu!!!');</script>";
             header("Location:../../views/home/index.php");
         }
         // if($count == 1){  

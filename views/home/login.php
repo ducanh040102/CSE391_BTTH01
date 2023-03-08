@@ -1,14 +1,7 @@
-<html>  
-<head>  
-    <title>login system</title>  
-    <!-- // insert style.css file inside login.html   -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel = "stylesheet" type = "css" href = "../../assets/css/styleLogin.css">   
-</head>  
-<body>  
+<?php include "../../assets/includes/header.php" ?>
     <div id = "frm" >  
         <h1>Login</h1>  
-        <form class="styleLogin" name="f1" action = "../../services/admin/authentication.php" onsubmit = "return validation()" method = "POST">  
+        <form class="styleLogin" name="f1" action = "../../controllers/admin/authentication.php" onsubmit = "return validation()" method = "POST">  
             <p>  
                 <label> UserName: </label>  
                 <input type = "text" id ="user" name  = "user" />  
@@ -64,6 +57,4 @@
             }  
         </script>   -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>    
-
-</html>  
+<?php include "../../assets/includes/footer.php"?>
